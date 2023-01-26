@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.row {
+    margin: 2em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-gap: 48px;
+}
+
+.card{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.card-title{
+    max-height: 150px;
+}
+
+.card-title img{
+    width: 100%;
+    object-fit: cover;
+    min-height: 100%;
+    object-position: center;
+}
+
+.card-body{
+    padding: 32px 15px;
+}
+
+.card-list{
+    margin-top: 16px;
+}
+
+.card-list li{
+    margin-top: 8px;
+}
+
+.card-list li span{
+    color: dimgray;
+}
+
+ul,ol{
+    list-style: none;
+}

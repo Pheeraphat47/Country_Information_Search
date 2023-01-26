@@ -18,10 +18,9 @@ function App() {
   return (
 
     <div className='container'>
-      <ul>
+      <ul className='row'>
         {countries.map((item, index) => {
           return (
-
             <li key={index}>
               <div className='card'>
                  <div className='card-title'>
@@ -31,9 +30,9 @@ function App() {
                      <div className='card-description'> 
                         <h2>{item.name}</h2>
                         <ol className='card-list'>
-                          <li>Population : {item.population}</li>
-                          <li>Region : {item.region}</li>                          
-                          <li>Capital : {item.capital}</li>                                                  
+                          <li>Population : <span>{item.population}</span></li>
+                          <li>Region : <span>{item.region}</span></li>                          
+                          <li>Capital : <span>{item.capital}</span></li>                                                  
                         </ol>
                      </div>
                  </div>
