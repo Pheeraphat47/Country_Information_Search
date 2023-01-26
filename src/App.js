@@ -1,37 +1,51 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
-  {/* ข้อมูลประเทศ */ }
-  const data = [
-    {
-      id: 1, name: "Thailand", region: "Asia", population: 100
-    },
+  const [countries, setCountries] = useState([]);
 
-    {
-      id: 2, name: "Canada", region: "Canada", population: 50
-    },
+  useEffect(() => {
+    fetch("https://restcountries.com/v2/all")
+      .then(res => res.json())
+      .then(data => {
+        setCountries(data)
+      })
+  }, [])
 
-    {
-      id: 3, name: "Canada", region: "japan", population: 150
-    }
-  ]
 
-  const [countries, setCountries] = useState(data);
 
   return (
-    <div className="App">
 
-      <div className='container'>
-        <ul>
-        {countries.map((item)=>{
-          return <li key={item.id}>{item.name} | {item.region} | {item.population}</li>
+    <div className='container'>
+      <ul>
+        {countries.map((item, index) => {
+          return (
+
+            <li key={index}>
+              <div className='card'>
+                 <div className='card-title'>
+                     <img src={item.flag} alt={item.name}></img>
+                 </div>
+                 <div className='card-body'>
+                     <div className='card-description'> 
+                        <h2>{item.name}</h2>
+                        <ol className='card-list'>
+                          <li>Population : {item.population}</li>
+                          <li>Region : {item.region}</li>                          
+                          <li>Capital : {item.capital}</li>                                                  
+                        </ol>
+                     </div>
+                 </div>
+              </div>
+            </li>
+
+          )
         })}
-        </ul>
-      </div>
-
+      </ul>
     </div>
+
+
   );
 }
 
